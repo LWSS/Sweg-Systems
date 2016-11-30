@@ -376,7 +376,7 @@
                'AUTHOR\n' +
                '\tWritten by Richard Stallman and David MacKenzie.\n',
       command: function(env, inputLine) {
-         $('#main-input').append($('<div>zebraGirl.jpg</div>'));
+         $('#main-input').append($('<div>waifu.jpg</div>'));
       }
    });
 
@@ -397,10 +397,10 @@
             return;
          }
 
-         if (inputLine.match(/zebraGirl\.jpg/)) {
+         if (inputLine.match(/waifu\.jpg/)) {
             setTimeout(function() {
-               $('#zebra-girl').css('z-index', ++env.maxIndex);
-               $('#zebra-girl').show();
+               $('#waifu-girl').css('z-index', ++env.maxIndex);
+               $('#waifu-girl').show();
                blurAllWindows();
             }, 300);
          }
@@ -503,7 +503,7 @@
          'theKingFocus.jpg',
          'macHDBlur.jpg',
          'asciiNewman.jpg',
-         'zebraGirlWindow.jpg']).each(function() {
+         'waifuGirlWindow.jpg']).each(function() {
             new Image().src = '/img/' + this;
          });
 

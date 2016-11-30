@@ -181,14 +181,14 @@ body {
    overflow: hidden;
 }
 
-#zebra-girl {
+#waifu-girl {
    height: 760px;
    width: 662px;
    position: absolute;
    display: none;
    right: 20px;
    top: 40px;
-   background-image: url("/img/zebraGirlWindow.jpg");
+   background-image: url("/img/waifuGirlWindow.jpg");
 }
 
 .terminal-view {
