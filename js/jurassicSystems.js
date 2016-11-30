@@ -112,8 +112,8 @@
             });
 
              // XD
-             env.sounds.fourTwenty.play();
              env.sounds.fourTwenty.playbackRate = 0.5;
+             env.sounds.fourTwenty.play();
          }  else {
             sm.setup({ 
                url: '/swf/soundManager/',
