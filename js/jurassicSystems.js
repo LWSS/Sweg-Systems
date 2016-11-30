@@ -6,10 +6,10 @@
              maxIndex: 1,
              musicOn: false,
              commands: {},
-             sounds: {}
+             sounds: {},
+             volume: 0.2
           };
       var api = {};
-      var volume = 0.2;
 
       api.buildCommandLine = function(line) {
          var commandName = line.trim().split(/ /)[0];
@@ -107,7 +107,7 @@
                 play: function() {
                     fourTwentyHTML5[0].load();
                     fourTwentyHTML5[0].play();
-                    fourTwentyHTML5[0].volume = volume;
+                    fourTwentyHTML5[0].volume = env.volume;
 					fourTwentyHTML5[0].playbackRate = 0.9;
 					fourTwentyHTML5[0].webkitPreservesPitch = false;
                 },
@@ -212,11 +212,12 @@
             } else {
                 if( env.musicOn ){
                     env.sounds.fourTwenty.stop();
-                    this.volume = arg;
+                    env.volume = arg;
                     env.sounds.fourTwenty.play();
+                    console.log(env.volume);
                 } else {
-                    this.volume = arg;
-                    console.log(this.volume);
+                    env.volume = arg;
+                    console.log(env.volume);
                 }
             }
         }
