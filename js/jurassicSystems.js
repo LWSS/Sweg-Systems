@@ -103,10 +103,6 @@
                     fourTwentyHTML5[0].load();
                     fourTwentyHTML5[0].play();
                 },
-
-                stop: function() {
-                    fourTwentyHTML[0].pause();
-                }
             };
 
             dennisMusicHTML5.bind('ended', function() {
