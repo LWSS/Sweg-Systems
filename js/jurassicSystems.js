@@ -65,7 +65,7 @@
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.mp3">');
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.wav">');
 			whipHTML5.append('<source src="/sound/whipcrack.mp3">');
-            fourTwentyHTML.append('<source src="/snd/420.mp3">');
+            fourTwentyHTML5.append('<source src="/snd/420.mp3">');
 
             env.sounds.beep = {
                play: function() {
@@ -100,8 +100,8 @@
 
             env.sounds.fourTwenty = {
                 play: function() {
-                    fourTwentyHTML[0].load();
-                    fourTwentyHTML[0].play();
+                    fourTwentyHTML5[0].load();
+                    fourTwentyHTML5[0].play();
                 }
 
                 stop: function() {
