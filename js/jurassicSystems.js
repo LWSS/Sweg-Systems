@@ -435,7 +435,7 @@
                $('#intro-scene').attr('src', '');
             });
          }
-      }, 4500);
+      }, 2500);
 
       $('body').click(blurAllWindows);
 
