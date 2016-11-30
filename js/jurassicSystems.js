@@ -613,7 +613,7 @@
          // if enter
          if (key === 13) {
             jpTerminal.ComStackReset();
-            var line = activeTerminal.find('.buffer').val();
+            var line = $('#curr-main-input').text();
             activeTerminal.find('.buffer').val('');
 
             if (activeTerminal.attr('id') === 'chess-terminal') {
