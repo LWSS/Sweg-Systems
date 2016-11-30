@@ -123,6 +123,7 @@
 
              // XD
              env.sounds.fourTwenty.play();
+             env.musicOn = true;
          }  else {
             sm.setup({ 
                url: '/swf/soundManager/',
@@ -204,12 +205,18 @@
         summary: 'set music volume',
         manPage: 'It\'s a Volume command, dumbass. [usage: volume xx 0.0->1.0]',
         command: function(env, inputLine) {
-            var arg = inputLine.trim().split(/ +/)[1] || '';
+            var arg = inputLine.trim().split(' ')[1] || '';
             var output = $('<span/>').text('volume: must set volume level');
-            if (!arg || !arg.match(/^(?:on|off)$/i)) {
+            if (!arg) {
                 $('#main-input').append(output);
             } else {
-                this.volume = arg;
+                if( env.musicOn ){
+                    env.sounds.fourTwenty.stop();
+                    this.volume = arg;
+                    env.sounds.fourTwenty.play();
+                } else {
+                    this.volume = arg;
+                }
             }
         }
     });
