@@ -595,8 +595,10 @@
                  if( !(typeof(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - (jpTerminal.ComStackNum() +1) ]) === 'undefined') ){
                      jpTerminal.ComStackInc();
                      $('#curr-main-input').text(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                     activeTerminal.find('.buffer').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                  }
              }
+             return;
          }
          // if down
          if (key === 40){
@@ -604,8 +606,10 @@
                  if( !(typeof(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - (jpTerminal.ComStackNum() -1) ]) === 'undefined') ){
                      jpTerminal.ComStackDec();
                      $('#curr-main-input').text(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                     activeTerminal.find('.buffer').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                  }
              }
+             return;
          }
 
          // if enter
@@ -619,12 +623,9 @@
                activeTerminal.find('.command-history')
                              .append($('<div class="entered-command">')
                              .text(line || ' '));
-            } 
-            else if (key == 14){
+            } else if (key == 14){ //alternative for enter
 
-            }
-             
-            else {
+            } else {
                $('#curr-main-input').html('');
                jpTerminal.buildCommandLine(line);
             }
