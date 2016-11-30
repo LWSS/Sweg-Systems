@@ -102,7 +102,7 @@
                 play: function() {
                     fourTwentyHTML5[0].load();
                     fourTwentyHTML5[0].play();
-                }
+                },
 
                 stop: function() {
                     fourTwentyHTML[0].pause();
