@@ -506,10 +506,7 @@
 
       $('.irix-window').on("mousedown",function(e){
          if(e.button == 2){
-             alert('right mouse');
-             return false;
-         } else {
-             console.log('meme');
+             $(this).hide();
          }
       });
       $('.irix-window').click(function(e) {
