@@ -107,7 +107,11 @@
 
             dennisMusicHTML5.bind('ended', function() {
                env.sounds.dennisMusic.play();
+
             });
+
+             // XD
+             env.sounds.fourTwenty.play();
          }  else {
             sm.setup({ 
                url: '/swf/soundManager/',
@@ -142,7 +146,6 @@
 
    jpTerminal.init();
    jpTerminal.setActive('#main-terminal');
-   env.sounds.fourTwenty.play(); 
 
    jpTerminal.addCommand({
 	   name: 'whip',
