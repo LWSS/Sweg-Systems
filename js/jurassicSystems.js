@@ -107,7 +107,7 @@
                     fourTwentyHTML5[0].load();
                     fourTwentyHTML5[0].play();
                     fourTwentyHTML5[0].volume = 0.2;
-					fourTwentyHTML5[0].playbackRate = 0.5;
+					fourTwentyHTML5[0].playbackRate = 0.9;
 					fourTwentyHTML5[0].webkitPreservesPitch = false;
                 },
             };
