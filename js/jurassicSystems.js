@@ -514,7 +514,9 @@
          $(this).css('z-index', jpTerminal.nextIndex());
          $(this).find('.cursor').addClass('active-cursor');
       });
-
+      $('.irix-window').contextmenu(function(){
+          $(this).hide();
+      });
       $(window).keydown(function(e) {
          if ([37, 38, 39, 40].indexOf(e.keyCode || e.which) > -1) {
             e.preventDefault();
