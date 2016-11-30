@@ -118,8 +118,8 @@ body {
 }
 
 #johnny-test {
-	height: 582px;
-	width: 815px;
+	height: 542px;
+	width: 914px;
 	margin: auto;
 	padding-top: 31px;
 	padding-left: 30px;
@@ -127,7 +127,7 @@ body {
 	background-repeat: no-repeat;
 	position: absolute;
 	top: 150px;
-	left: 150px;
+	left: 150;
 }
 
 #main-terminal .inner-wrap {
