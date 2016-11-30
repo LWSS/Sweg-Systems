@@ -189,7 +189,7 @@
                env.musicOn = true;
             } else if (arg.toLowerCase() === 'off') {
                //env.sounds.dennisMusic.stop();
-               env.sounds.fourTwenty.stop
+               env.sounds.fourTwenty.stop();
                env.musicOn = false;
             }
          }
