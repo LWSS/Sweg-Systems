@@ -7,7 +7,7 @@
              musicOn: false,
              commands: {},
              sounds: {},
-             volume: 0.2,
+             volume: 0.15,
              commandArr: [],
              commandNum: 0
           };
