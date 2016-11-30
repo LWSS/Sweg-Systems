@@ -595,7 +595,6 @@
                  if( !(typeof(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - (jpTerminal.ComStackNum() +1) ]) === 'undefined') ){
                      jpTerminal.ComStackInc();
                      $('#curr-main-input').text(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
-                     console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                  }
              }
          }
@@ -605,7 +604,6 @@
                  if( !(typeof(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - (jpTerminal.ComStackNum() -1) ]) === 'undefined') ){
                      jpTerminal.ComStackDec();
                      $('#curr-main-input').text(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
-                     console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                  }
              }
          }
