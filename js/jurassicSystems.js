@@ -594,7 +594,7 @@
              if (activeTerminal.attr('id') === 'main-terminal') {
                  if( (!(jpTerminal.ComStackNum == (jpTerminal.ComStackArr().length-1))) || jpTerminal.ComStackArr().length == 0 ){ // as long as there is command history to go back to
                      jpTerminal.ComStackInc();
-                     activeTerminal.find('command-input').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                     activeTerminal.attr('curr-main-input').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                      console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                  }
              }
@@ -604,7 +604,7 @@
              if (activeTerminal.attr('id') === 'main-terminal') {
                  if( jpTerminal.ComStackNum() > -1 ){
                      jpTerminal.ComStackDec();
-                     activeTerminal.find('command-input').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                     activeTerminal.attr('curr-main-input').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                      console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                  }
              }
