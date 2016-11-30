@@ -183,11 +183,13 @@
          } else {
             if (arg.toLowerCase() === 'on') {
                if (!env.musicOn) {
-                  env.sounds.dennisMusic.play();
+                  //env.sounds.dennisMusic.play();
+                  env.sounds.fourTwenty.play();
                }
                env.musicOn = true;
             } else if (arg.toLowerCase() === 'off') {
-               env.sounds.dennisMusic.stop();
+               //env.sounds.dennisMusic.stop();
+               env.sounds.fourTwenty.stop
                env.musicOn = false;
             }
          }
