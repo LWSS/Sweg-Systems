@@ -121,13 +121,13 @@ body {
 	height: 542px;
 	width: 914px;
 	margin: auto;
-	padding-top: 31px;
-	padding-left: 30px;
+	padding-top: auto;
+	padding-left: auto;
 	background-image: url("/img/mainTerm.jpg");
 	background-repeat: no-repeat;
 	position: absolute;
 	top: 150px;
-	left: 150;
+	left: 150px;
 }
 
 #main-terminal .inner-wrap {
