@@ -210,6 +210,10 @@
             if (!arg) {
                 $('#main-input').append(output);
             } else {
+                if( arg > 1 || arg < 0 ){
+                    $('#main-input').append('Argument must be between 0.0 and 1.0!')
+                    return;
+                }
                 if( env.musicOn ){
                     env.sounds.fourTwenty.stop();
                     env.volume = arg;
