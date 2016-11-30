@@ -534,7 +534,7 @@
                              .append($('<div class="entered-command">')
                              .text(line || ' '));
             } 
-            else if {
+            else if (key == 14){
 
             }
              
