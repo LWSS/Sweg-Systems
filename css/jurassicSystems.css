@@ -18,8 +18,8 @@ body {
    z-index: 60000;
    margin-left: 20%;
    margin-top: 10px;
-   width: 1124px;
-   height: 850px;
+   width: 1920px;
+   height: 1080px;
 }
 
 .view-cover {
@@ -86,8 +86,8 @@ body {
    overflow: hidden;
    margin-left: 20%;
    margin-top: 10px;
-   width: 1124px;
-   height: 850px;
+   width: 1920px;
+   height: 1080px;
    overflow: hidden;
 }
 
@@ -99,8 +99,8 @@ body {
    margin-top: 10px;
    position: absolute;
    left: -3000px;
-   width: 1124px;
-   height: 850px;
+   width: 1920px;
+   height: 1080px;
    border-radius: 10px;
 }
 
