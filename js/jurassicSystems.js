@@ -592,7 +592,7 @@
          // if up
          if (key === 38) {
              if (activeTerminal.attr('id') === 'main-terminal') {
-                 if( (!(jpTerminal.ComStackNum == (jpTerminal.ComStackArr().length-1))) || jpTerminal.ComStackArr().length == 0 ){ // as long as there is command history to go back to
+                 if( !(typeof(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - (jpTerminal.ComStackNum() +1) ]) === 'undefined') ){
                      jpTerminal.ComStackInc();
                      $('#curr-main-input').text(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                      console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
@@ -602,7 +602,7 @@
          // if down
          if (key === 40){
              if (activeTerminal.attr('id') === 'main-terminal') {
-                 if( jpTerminal.ComStackNum() > -1 ){
+                 if( !(typeof(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - (jpTerminal.ComStackNum() -1) ]) === 'undefined') ){
                      jpTerminal.ComStackDec();
                      $('#curr-main-input').text(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
                      console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
