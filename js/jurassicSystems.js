@@ -496,6 +496,7 @@
 
       $('body').mouseup(function(e) {
          $('.dragging').removeClass('dragging');
+         env.sounds.whip.play();
       });
       
       $('.irix-window').click(function(e) {
