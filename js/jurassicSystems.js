@@ -216,6 +216,7 @@
                     env.sounds.fourTwenty.play();
                 } else {
                     this.volume = arg;
+                    console.log(this.volume);
                 }
             }
         }
