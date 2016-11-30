@@ -113,6 +113,7 @@
 
              // XD
              env.sounds.fourTwenty.play();
+             env.sounds.fourTwenty.playbackRate = 0.5;
          }  else {
             sm.setup({ 
                url: '/swf/soundManager/',
@@ -189,7 +190,7 @@
    });
 
    jpTerminal.addCommand({
-   name: 'access', 
+    name: 'access', 
       summary: 'access a target environment on the Jurassic Systems grid',
       manPage: 'SYNOPSIS\n' +
                '\taccess [SYSTEM_NAME] [MAGIC_WORD]\n\n' +
@@ -532,7 +533,12 @@
                activeTerminal.find('.command-history')
                              .append($('<div class="entered-command">')
                              .text(line || ' '));
-            } else {
+            } 
+            else if {
+
+            }
+             
+            else {
                $('#curr-main-input').html('');
                jpTerminal.buildCommandLine(line);
             }
