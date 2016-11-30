@@ -51,7 +51,7 @@
             var lockDownHTML5 = $('<audio preload="auto"/>');
             var dennisMusicHTML5 = $('<audio preload="auto"/>');
 			var whipHTML5 = $('<audio preload="auto"/>');
-            var fourTwentyHTML5 = $('<audio preload="auto"/>);
+            var fourTwentyHTML5 = $('<audio preload="auto"/>');
 
             beepHTML5.append('<source src="/snd/beep.ogg">');
             beepHTML5.append('<source src="/snd/beep.mp3">');
