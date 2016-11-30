@@ -522,6 +522,9 @@
       $('.irix-window').contextmenu(function(){
           return false;
       });
+       $('body').contextmenu(function(){
+           return false;
+       });
       $(window).keydown(function(e) {
          if ([37, 38, 39, 40].indexOf(e.keyCode || e.which) > -1) {
             e.preventDefault();
