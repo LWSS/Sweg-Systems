@@ -32,6 +32,10 @@
          }
       }
 
+      api.whip = function(){
+          env.sounds.whip.play();
+      }
+
       api.setActive = function(active) {
          env.active = $(active) || env.active;
       }
@@ -496,7 +500,7 @@
 
       $('body').mouseup(function(e) {
          $('.dragging').removeClass('dragging');
-         env.sounds.whip.play();
+          jpTerminal.whip();
       });
       
       $('.irix-window').click(function(e) {
