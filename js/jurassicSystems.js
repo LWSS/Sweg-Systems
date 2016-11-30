@@ -9,6 +9,7 @@
              sounds: {}
           };
       var api = {};
+      var volume = 0.2;
 
       api.buildCommandLine = function(line) {
          var commandName = line.trim().split(/ /)[0];
@@ -106,7 +107,7 @@
                 play: function() {
                     fourTwentyHTML5[0].load();
                     fourTwentyHTML5[0].play();
-                    fourTwentyHTML5[0].volume = 0.2;
+                    fourTwentyHTML5[0].volume = volume;
 					fourTwentyHTML5[0].playbackRate = 0.9;
 					fourTwentyHTML5[0].webkitPreservesPitch = false;
                 },
@@ -198,6 +199,20 @@
          }
       }
    });
+    jpTerminal.addCommand({
+        name: 'volume',
+        summary: 'set music volume',
+        manPage: 'It\'s a Volume command, dumbass. [usage: volume xx 0.0->1.0]',
+        command: function(env, inputLine) {
+            var arg = inputLine.trim().split(/ +/)[1] || '';
+            var output = $('<span/>').text('volume: must set volume level');
+            if (!arg || !arg.match(/^(?:on|off)$/i)) {
+                $('#main-input').append(output);
+            } else {
+                this.volume = arg;
+            }
+        }
+    });
 
    jpTerminal.addCommand({
     name: 'access', 
