@@ -7,10 +7,27 @@
              musicOn: false,
              commands: {},
              sounds: {},
-             volume: 0.2
+             volume: 0.2,
+             commandArr: [],
+             commandNum: 0
           };
       var api = {};
 
+      api.ComStackNum = function( ){
+          return env.commandNum;
+      }
+      api.ComStackArr = function( ){
+          return env.commandArr;
+      }
+      api.ComStackInc = function( ){
+          env.commandNum = env.commandNum + 1;
+      }
+      api.ComStackDec = function( ){
+          env.commandNum = env.commandNum - 1;
+      }
+      api.ComStackReset = function( ){
+          env.commandNum = 0;
+      }
       api.buildCommandLine = function(line) {
          var commandName = line.trim().split(/ /)[0];
          var command = env.commands[commandName] && env.commands[commandName].command;
@@ -19,6 +36,7 @@
                    .append($('<div class="entered-command">')
                    .text('> ' + line));
 
+         env.commandArr.push(line);
          if (command) {
             command(env, line);
          } else if (commandName) {
@@ -218,10 +236,8 @@
                     env.sounds.fourTwenty.stop();
                     env.volume = arg;
                     env.sounds.fourTwenty.play();
-                    console.log(env.volume);
                 } else {
                     env.volume = arg;
-                    console.log(env.volume);
                 }
             }
         }
@@ -572,8 +588,31 @@
             return false;
          }
 
+
+         // if up
+         if (key === 38) {
+             if (activeTerminal.attr('id') === 'main-terminal') {
+                 if( (!(jpTerminal.ComStackNum == (jpTerminal.ComStackArr().length-1))) || jpTerminal.ComStackArr().length == 0 ){ // as long as there is command history to go back to
+                     jpTerminal.ComStackInc();
+                     activeTerminal.find('command-input').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                     console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                 }
+             }
+         }
+         // if down
+         if (key === 40){
+             if (activeTerminal.attr('id') === 'main-terminal') {
+                 if( jpTerminal.ComStackNum() > -1 ){
+                     jpTerminal.ComStackDec();
+                     activeTerminal.find('command-input').val(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                     console.log(jpTerminal.ComStackArr()[ jpTerminal.ComStackArr().length - jpTerminal.ComStackNum() ]);
+                 }
+             }
+         }
+
          // if enter
          if (key === 13) {
+            jpTerminal.ComStackReset();
             var line = activeTerminal.find('.buffer').val();
             activeTerminal.find('.buffer').val('');
 
