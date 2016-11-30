@@ -50,6 +50,7 @@
             var beepHTML5 = $('<audio preload="auto"/>');
             var lockDownHTML5 = $('<audio preload="auto"/>');
             var dennisMusicHTML5 = $('<audio preload="auto"/>');
+			var whipHTML5 = $('<audio preload="auto"/>');
 
             beepHTML5.append('<source src="/snd/beep.ogg">');
             beepHTML5.append('<source src="/snd/beep.mp3">');
@@ -62,6 +63,8 @@
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.ogg">');
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.mp3">');
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.wav">');
+			
+			whipHTML5.append('<source src="/sound/whipcrack.mp3">');
 
             env.sounds.beep = {
                play: function() {
@@ -69,6 +72,13 @@
                   beepHTML5[0].play();
                }
             };
+			
+			env.sounds.whip = {
+				play: function() {
+					whipHTML5[0].load();
+					whipHTML5[0].play();
+				}
+			};
 
             env.sounds.lockDown = {
                play: function() {
@@ -125,6 +135,17 @@
    jpTerminal.init();
    jpTerminal.setActive('#main-terminal');
 
+   jpTerminal.addCommand({
+	   name: 'whip',
+	   summary: 'whip',
+	   manPage: 'whip',
+	   command: function(env, inputLine) {
+			var output = $('WCCHAAAAAAA');
+			
+			env.sounds.whip.play();
+	   }
+   });
+   
    jpTerminal.addCommand({
       name: 'music',
       summary: 'turn background music on or off',
