@@ -110,6 +110,9 @@
 					fourTwentyHTML5[0].playbackRate = 0.9;
 					fourTwentyHTML5[0].webkitPreservesPitch = false;
                 },
+                stop: function() {
+                    fourTwentyHTML5[0].pause();
+                }
             };
 
             dennisMusicHTML5.bind('ended', function() {
