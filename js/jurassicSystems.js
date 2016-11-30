@@ -503,7 +503,15 @@
          $('.dragging').removeClass('dragging');
           jpTerminal.whip();
       });
-      
+
+      $('.irix-window').on("mousedown",function(e){
+         if(e.button == 2){
+             alert('right mouse');
+             return false;
+         } else {
+             console.log('meme');
+         }
+      });
       $('.irix-window').click(function(e) {
          e.stopPropagation();
          blurAllWindows();
@@ -515,7 +523,7 @@
          $(this).find('.cursor').addClass('active-cursor');
       });
       $('.irix-window').contextmenu(function(){
-          $(this).hide();
+          return false;
       });
       $(window).keydown(function(e) {
          if ([37, 38, 39, 40].indexOf(e.keyCode || e.which) > -1) {
