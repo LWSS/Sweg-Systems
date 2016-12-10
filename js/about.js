@@ -75,9 +75,7 @@
      function refresh() {
 
          inputLock = true;
-
          if (targetContent.length - lastContent.length == 0) return;
-
          var v = targetContent.substring(0, lastContent.length + 1);
 
          content = [];
@@ -139,6 +137,11 @@
              var key = e.keyCode || e.which;
              if (key === 13) {
                  sickSubmit();
+             } else if( key === 8 ){
+                 //console.log('meme');
+                 //hiddenInput='';
+                 //$('.letterStatic').remove();
+                 //$('.letterContainer').remove();
              }
          });
          if (!isIE) {
