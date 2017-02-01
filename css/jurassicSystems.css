@@ -1,9 +1,10 @@
 body {
-   overflow-x: hidden;
+   overflow-x: auto;
    overflow-y: auto;
    padding: 0px;
    margin: 0px;
-   background: black;
+   background-image: url(../img/loli.jpg);
+   background-size: cover;
    width: 100%;
    height: 100%;
 }
@@ -12,14 +13,17 @@ body {
    position: relative;
 }
 
+#hang-urself {
+   postition: absolute;
+   z-index: 100;
+}
+
 #irix-boot {
    position: absolute;
    background: #6ba1d8;
    z-index: 60000;
-   margin-left: 20%;
-   margin-top: 10px;
-   width: 1124px;
-   height: 850px;
+   width: 100%;
+   height: 100%;
 }
 
 .view-cover {
@@ -41,21 +45,11 @@ body {
 
 #boot-dialogue {
    position: absolute;
+   z-index: -1;
    margin: auto;
    top: 200px;
    left: 0;
    right: 0;
-}
-
-#home-key {
-   position: fixed;
-   bottom: 10px;
-   right: 10px;
-   opacity: 0.7;
-}
-
-#home-key:hover {
-   opacity: 1;
 }
 
 #command-help {
@@ -83,25 +77,9 @@ body {
 #irix-desktop {
    background-image: url("/img/loli.jpg");
    background-repeat: no-repeat;
-   overflow: hidden;
-   margin-left: 20%;
-   margin-top: 10px;
-   width: 1124px;
-   height: 850px;
-   overflow: hidden;
-}
-
-#apple-desktop {
-   background-image: url("/img/appleBackground.jpg");
-   background-repeat: no-repeat;
-   overflow: hidden;
-   margin-left: 10px;
-   margin-top: 10px;
-   position: absolute;
-   left: -3000px;
-   width: 1124px;
-   height: 850px;
-   border-radius: 10px;
+   width: 100%;
+   height: 100%;
+   overflow: visible;
 }
 
 #main-terminal {
@@ -113,8 +91,8 @@ body {
    background-image: url("/img/mainTerm.jpg");
    background-repeat: no-repeat;
    position: absolute;
-   top: 120px;
-   left: 160px;
+   top: 0.5%;
+   right: 0.5%;
 }
 
 #johnny-test {
@@ -176,8 +154,6 @@ body {
 }
 
 #chess-terminal .inner-wrap {
-   height: 207px;
-   width: 805px;
    overflow: hidden;
 }
 
@@ -189,6 +165,25 @@ body {
    right: 20px;
    top: 40px;
    background-image: url("/img/waifuGirlWindow.jpg");
+}
+
+#quake {
+   height: 493px;
+   width: 622px;
+   position: absolute;
+   display: none;
+   right: 20px;
+   top: 40px;
+   background-image: url("/img/quake.PNG");
+}
+#quake #viewport-frame {
+   position: absolute;
+   left: 7px;
+   top: 28px;
+   height: 459px;
+   width: 610px;
+   overflow: hidden;
+   background-color: black;
 }
 
 .terminal-view {
@@ -209,58 +204,10 @@ body {
    height: 369px;
    width: 393px;
    position: absolute;
-   top: 220px;
-   left: 70px;
+   top: 0.5%;
+   left: 0.5%;
 }
 
-#the-king-window {
-   display: none;
-   background-image: url('/img/theKingFocus.jpg');
-   background-repeat: no-repeat;
-   width: 600px;
-   height: 620px;
-   position: absolute;
-   left: 50px;
-   top: 130px;
-   text-align: center;
-}
-
-#the-king-animation {
-   position: absolute;
-   top: 40px;
-   left: 80px;
-   z-index: 64000;
-}
-
-#the-king-blur {
-   background-image: url('/img/theKingBlur.jpg');
-   width: 600px;
-   height: 620px;
-   position: absolute;
-   top: 0;
-   left: 0;
-   opacity: 0;
-   display: none;
-}
-
-#king-animation {
-   margin: 50px;
-   z-index: 50000;
-}
-
-#king-swf {
-   z-index: 64000;
-}
-
-#mac-hd-window {
-   width: 556px;
-   height: 566px;
-   background-image: url("/img/macHDFocus.jpg");
-   background-repeat: no-repeat;
-   position: absolute;
-   left: 15px;
-   top: 100px
-}
 
 .buffer {
    position: absolute;
@@ -312,7 +259,6 @@ input[type="button"], button {-moz-box-sizing: content-box;}
 input[type="button"]::-moz-focus-inner, button::-moz-focus-inner { padding:0;border:0 none; }
 
 .button {
-   background-image:url("/img/buttonOverlay.png");
    -moz-border-radius:5px;
    -webkit-border-radius:5px;
    border-radius:5px;

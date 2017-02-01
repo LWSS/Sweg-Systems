@@ -87,7 +87,7 @@
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.ogg">');
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.mp3">');
             dennisMusicHTML5.append('<source src="/snd/dennisMusic.wav">');
-			whipHTML5.append('<source src="/sound/whipcrack.mp3">');
+			whipHTML5.append('<source src="/snd/whipcrack.mp3">');
             fourTwentyHTML5.append('<source src="/snd/420.mp3">');
 
             env.sounds.beep = {
@@ -182,8 +182,6 @@
 	   summary: 'whip',
 	   manPage: 'whip',
 	   command: function(env, inputLine) {
-			var output = $('WCCHAAAAAAA');
-			
 			env.sounds.whip.play();
 	   }
    });
@@ -264,7 +262,6 @@
 
             return;
          } else if (inputLine.split(' ').length > 2 && magicWord.trim() === 'please') {
-            $('#main-input').append($('<img id="asciiNewman" src="/img/asciiNewman.jpg" />'));
             $('#asciiNewman').load(function() {
                var wrap = $('.inner-wrap', env.active);
                wrap.scrollTop(wrap[0].scrollHeight);
@@ -303,11 +300,6 @@
                         clearInterval(errorSpam);
                      }
 
-                     $('#mac-hd-window').css('background-image', 'url(/img/macHDBlur.jpg)');
-                     $('#the-king-window').show();
-                     setTimeout(function() {
-                        $('#home-key').css('z-index', '64000');
-                     }, 10000);
                   }, 2000);
                });
             }, 4000);
@@ -380,7 +372,85 @@
       }
    });
 
-   jpTerminal.addCommand({
+    jpTerminal.addCommand({
+        name: 'quake',
+        summary: 'Launch the Quake 3 Video game ',
+        manPage: 'SYNOPSIS\n' +
+        '\tquake \n\n' +
+        'DESCRIPTION\n' +
+        '\tLaunches Quake 3 \n\n' +
+        'AUTHOR\n' +
+        '\tWritten by Id Software and QuakeJS.\n',
+        command: function(env, inputLine) {
+            $('#quake').css('z-index', ++env.maxIndex);
+            $('#quake').show();
+
+            if( env.musicOn ){
+                env.sounds.fourTwenty.stop();
+            }
+            function getQueryCommands() {
+                var search = /([^&=]+)/g;
+                var query  = window.location.search.substring(1);
+
+                var args = [];
+
+                var match;
+                while (match = search.exec(query)) {
+                    var val = decodeURIComponent(match[1]);
+                    val = val.split(' ');
+                    val[0] = '+' + val[0];
+                    args.push.apply(args, val);
+                }
+
+                return args;
+            }
+            function resizeViewport() {
+                if (!ioq3.canvas) {
+                    // ignore if the canvas hasn't yet initialized
+                    return;
+                }
+                if ((document['webkitFullScreenElement'] || document['webkitFullscreenElement'] ||
+                    document['mozFullScreenElement'] || document['mozFullscreenElement'] ||
+                    document['fullScreenElement'] || document['fullscreenElement'])) {
+                    // ignore resize events due to going fullscreen
+                    return;
+                }
+                ioq3.setCanvasSize(ioq3.viewport.offsetWidth, ioq3.viewport.offsetHeight);
+            }
+
+            ioq3.viewport = document.getElementById('viewport-frame');
+            ioq3.elementPointerLock = true;
+            ioq3.exitHandler = function (err) {
+                if (err) {
+                    var form = document.createElement('form');
+                    form.setAttribute('method', 'POST');
+                    form.setAttribute('action', '/');
+
+                    var hiddenField = document.createElement('input');
+                    hiddenField.setAttribute('type', 'hidden');
+                    hiddenField.setAttribute('name', 'error');
+                    hiddenField.setAttribute('value', err);
+                    form.appendChild(hiddenField);
+
+                    document.body.appendChild(form);
+                    form.submit();
+                    return;
+                }
+
+                window.location.href = '/';
+            }
+
+            window.addEventListener('resize', resizeViewport);
+
+            // merge default args with query string args
+            var args = ['+set', 'fs_cdn', 'content.quakejs.com:80', '+set', 'sv_master1', 'master.quakejs.com:27950', '+connect', 'quakejs.sickfedoras.com:27960'];
+            args.push.apply(args, getQueryCommands());
+            ioq3.callMain(args);
+        }
+    });
+
+
+    jpTerminal.addCommand({
       name: 'display',
       summary: 'display image files (hint: use ls to find a \'file\')',
       manPage: 'SYNOPSIS\n' +
@@ -497,19 +567,16 @@
       $('.buffer').blur();
    }
 
+    // fix gif to load on every request.
+    var hangGif = $('#hang-urself').attr('src');
+    $('#hang-urself').attr('src', '');
+    $('#hang-urself').attr('src', hangGif + "?"+new Date().getTime());
+
    $(document).ready(function() {
       // attempt to cache objects
-      $(['theKingBlur.jpg',
-         'theKingFocus.jpg',
-         'macHDBlur.jpg',
-         'asciiNewman.jpg',
-         'waifuGirlWindow.jpg']).each(function() {
+      $(['waifuGirlWindow.jpg']).each(function() {
             new Image().src = '/img/' + this;
          });
-
-      $.ajax({
-         url : '/swf/theKing.swf'
-      });
 
       // remove boot screen
       setTimeout(function() {
@@ -524,7 +591,7 @@
                $('#intro-scene').attr('src', '');
             });
          }
-      }, 2500);
+      }, 3400);
 
       $('body').click(blurAllWindows);
 
@@ -553,11 +620,6 @@
           jpTerminal.whip();
       });
 
-      $('.irix-window').on("mousedown",function(e){
-         if(e.button == 2){
-             $(this).hide();
-         }
-      });
       $('.irix-window').click(function(e) {
          e.stopPropagation();
          blurAllWindows();
@@ -588,7 +650,10 @@
             return false;
          }
 
-
+         // Numpad 5 to kill window
+         if (key === 101) {
+             $(this).hide();
+         }
          // if up
          if (key === 38) {
              if (activeTerminal.attr('id') === 'main-terminal') {

@@ -12,16 +12,16 @@
    <title>Fedora Systems</title>
 
    <link rel="stylesheet" href="/css/normalize.css">
-   <link rel="icon" href="/favicon.ico">
    <link rel="stylesheet" href="/css/jurassicSystems.css">
    <script src="/js/lib/modernizr.js"></script>
+   <script src="//sickfedoras.com/quakeJS/quakejs.com_files/e557574401d50f407b2a9bae1feb15f7-ioquake3.js"></script>
 </head>
 <body>
    <!--[if lt IE 7]>
    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
    <![endif]-->
-<div id="home-key"><a href="/about.html"><img src="/img/homeKey.jpg" /></a></div>
-<div id="irix-boot"><img id="boot-dialogue" src="/img/irixBoot.gif"></img></div>
+
+<div id="irix-boot"> <img src="/img/hang.gif" id="hang-urself" width="100%" height="100%"><img id="boot-dialogue" src="/img/irixBoot.gif"></div>
 <div id="environment">
    <div id="irix-desktop">
       <div class="irix-window" id="main-terminal" style="z-index: 2">
@@ -49,16 +49,10 @@
          <div class="window-bar"></div>
       </div>
 
-      <!-- commenting out this johnny shit until it's fixed -->
-	 <!-- <div class="irix-window" id="johnny-test" style="z-index: 2">
-		<div class="window-bar"></div>
-		
-			<div class="inner-wrap" id="test">
-				<iframe width="914" height="542" src="https://www.youtube.com/embed/HUIcFTjL-e0" frameborder="0" allowfullscreen></iframe>
-			</div>
-		
-		</div>
-	  </div>-->
+       <div class="irix-window" id="quake">
+           <div class="window-bar"></div>
+           <div id="viewport-frame">REEE</div>
+       </div>
 	  
       <div class="irix-window" id="chess-terminal" style="z-index: 1">
          <div class="window-bar"></div>
@@ -66,119 +60,13 @@
          <div class="inner-wrap" id="chess-inner">
             <div class="terminal-view">
                <div class="console-preabmle">
-                  <div>CHESS: select level of play desired</div>
-                  <table cellspacing="0">
-                     <tr>
-                        <td>0.</td>
-                        <td>80</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>694</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>1.</td>
-                        <td>80</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>213</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>2.</td>
-                        <td>70</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>200</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>3.</td>
-                        <td>60</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>190</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>4.</td>
-                        <td>60</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>240</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>5.</td>
-                        <td>60</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>10</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>6.</td>
-                        <td>60</td>
-                        <td>moves</td>
-                        <td>in</td>
-                        <td>50</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>7.</td>
-                        <td>1</td>
-                        <td>move</td>
-                        <td>in</td>
-                        <td>68</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>8.</td>
-                        <td>1</td>
-                        <td>move</td>
-                        <td>in</td>
-                        <td>96</td>
-                        <td>minutes</td>
-                     </tr>
-                     <tr>
-                        <td>9.</td>
-                        <td>1</td>
-                        <td>move</td>
-                        <td>in</td>
-                        <td>680</td>
-                        <td>minutes</td>
-                     </tr>
-                  </table>
-                  <div class="chess-line">Enter Level: 1</div>
-                  <div class="chess-line">Illegal move</div>
+                  <div>Locked</div>
+
                </div>
                <div class="command-history"></div>
                <span class="command-input" id="curr-chess-input"></span><span id="chess-cursor" class="cursor">&nbsp;</span>
             </div>
          </div>
-      </div>
-   </div>
-   <div id="apple-desktop">
-      <div id="mac-hd-window" class="mac-window">
-      </div>
-      <div id="the-king-window" class="mac-window">
-         <div class="window-bar"></div>
-         <div id="the-king-animation">
-            <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="440" height="540" id="king-swf" align="middle">
-               <param name="movie" value="/swf/theKing.swf"/>
-               <!--[if !IE]>-->
-               <object type="application/x-shockwave-flash" data="/swf/theKing.swf" width="440" height="540">
-                  <param name="movie" value="/swf/theKing.swf"/>
-                  <!--<![endif]-->
-                  <a href="//www.adobe.com/go/getflash">
-                     <img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/>
-                  </a>
-                  <!--[if !IE]>-->
-               </object>
-               <!--<![endif]-->
-            </object>
-         </div>
-      <div id="the-king-blur"></div>
       </div>
    </div>
 </div>
