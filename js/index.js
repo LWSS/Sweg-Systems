@@ -511,9 +511,9 @@ var whipEnabled = true;
    }
 
     // fix gif to load on every request.
-    var hangGif = $('#hang-urself').attr('src');
-    $('#hang-urself').attr('src', '');
-    $('#hang-urself').attr('src', hangGif + "?"+new Date().getTime());
+    //var hangGif = $('#hang-urself').attr('src');
+    //$('#hang-urself').attr('src', '');
+    //$('#hang-urself').attr('src', hangGif + "?"+new Date().getTime());
 
    $(document).ready(function() {
       // attempt to cache objects
