@@ -80,13 +80,6 @@
             beepHTML5.append('<source src="/snd/beep.mp3">');
             beepHTML5.append('<source src="/snd/beep.wav">');
 
-            lockDownHTML5.append('<source src="/snd/lockDown.ogg">');
-            lockDownHTML5.append('<source src="/snd/lockDown.mp3">');
-            lockDownHTML5.append('<source src="/snd/lockDown.wav">');
-
-            dennisMusicHTML5.append('<source src="/snd/dennisMusic.ogg">');
-            dennisMusicHTML5.append('<source src="/snd/dennisMusic.mp3">');
-            dennisMusicHTML5.append('<source src="/snd/dennisMusic.wav">');
 			whipHTML5.append('<source src="/snd/whipcrack.mp3">');
             fourTwentyHTML5.append('<source src="/snd/420.mp3">');
 
@@ -143,31 +136,7 @@
              env.sounds.fourTwenty.play();
              env.musicOn = true;
          }  else {
-            sm.setup({ 
-               url: '/swf/soundManager/',
-               onready: function() {
-                  env.sounds.beep = sm.createSound({
-                     id: 'beep',
-                     autoLoad: true,
-                     url: '/snd/beep.mp3'
-                  });
-
-                  env.sounds.lockDown = sm.createSound({
-                     id: 'lockDown',
-                     autoLoad: true,
-                     url: '/snd/lockDown.mp3'
-                  });
-
-                  env.sounds.dennisMusic = sm.createSound({
-                     id: 'dennisMusic',
-                     autoLoad: true,
-                     url: '/snd/dennisMusic.mp3',
-                     onfinish: function() {
-                        sm.play('dennisMusic');
-                     }
-                  });
-               }
-            });
+             console.log("Your Browser does not support HTML5 Sound");
          }
       }
 
@@ -192,7 +161,7 @@
       manPage: 'SYNOPSIS\n' + 
                '\tmusic [on|off]\n\n' + 
                'DESCRIPTION\n' + 
-               '\tManage the state of the \'Dennis Steals the Embryo\' music. Use the \'on\' state for\n\tincreased epicness.\n\n' +
+               '\tManage the state of the music.(On/Off)\n' +
                'AUTHOR\n' +
                '\tWritten by <a href="https://tully.io">Tully Robinson</a>.\n',
       command: function(env, inputLine) {
@@ -650,8 +619,8 @@
             return false;
          }
 
-         // Numpad 5 to kill window
-         if (key === 101) {
+         // End Key to kill window
+         if (key === 35) {
              $(this).hide();
          }
          // if up
@@ -716,4 +685,4 @@
          }
       });
    });
-}(jQuery, soundManager));
+}(jQuery));
