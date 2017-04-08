@@ -69,7 +69,9 @@
 
       api.init = function() {
          // HTML5 audio element detection
-         if (Modernizr.audio.mp3 || Modernizr.audio.wav || Modernizr.audio.ogg) {
+         if (!(Modernizr.audio.mp3 || Modernizr.audio.wav || Modernizr.audio.ogg)) {
+             console.log("Your Browser does not support HTML5 Sound");
+         }
             var beepHTML5 = $('<audio preload="auto"/>');
             var lockDownHTML5 = $('<audio preload="auto"/>');
             var dennisMusicHTML5 = $('<audio preload="auto"/>');
@@ -135,9 +137,6 @@
              // XD
              env.sounds.fourTwenty.play();
              env.musicOn = true;
-         }  else {
-             console.log("Your Browser does not support HTML5 Sound");
-         }
       }
 
       return api;
