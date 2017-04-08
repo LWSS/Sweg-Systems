@@ -534,7 +534,7 @@ var whipEnabled = true;
                $('#intro-scene').attr('src', '');
             });
          }
-      }, 3400);
+      }, 3350);
 
       $('body').click(blurAllWindows);
 
