@@ -73,25 +73,11 @@ var whipEnabled = true;
          if (!(Modernizr.audio.mp3 || Modernizr.audio.wav || Modernizr.audio.ogg)) {
              console.log("Your Browser does not support HTML5 Sound");
          }
-            var beepHTML5 = $('<audio preload="auto"/>');
-            var lockDownHTML5 = $('<audio preload="auto"/>');
-            var dennisMusicHTML5 = $('<audio preload="auto"/>');
 			var whipHTML5 = $('<audio preload="auto"/>');
             var fourTwentyHTML5 = $('<audio preload="auto"/>');
 
-            beepHTML5.append('<source src="/snd/beep.ogg">');
-            beepHTML5.append('<source src="/snd/beep.mp3">');
-            beepHTML5.append('<source src="/snd/beep.wav">');
-
 			whipHTML5.append('<source src="/snd/whipcrack.mp3">');
             fourTwentyHTML5.append('<source src="/snd/420.mp3">');
-
-            env.sounds.beep = {
-               play: function() {
-                  beepHTML5[0].load();
-                  beepHTML5[0].play();
-               }
-            };
 
 			env.sounds.whip = {
 				play: function() {
@@ -99,23 +85,6 @@ var whipEnabled = true;
 					whipHTML5[0].play();
 				}
 			};
-
-            env.sounds.lockDown = {
-               play: function() {
-                  lockDownHTML5[0].load();
-                  lockDownHTML5[0].play();
-               }
-            };
-
-            env.sounds.dennisMusic = {
-               play: function() {
-                  dennisMusicHTML5[0].load();
-                  dennisMusicHTML5[0].play();
-               },
-               stop: function() {
-                  dennisMusicHTML5[0].pause();
-               }
-            };
 
             env.sounds.fourTwenty = {
                 play: function() {
@@ -130,9 +99,8 @@ var whipEnabled = true;
                 }
             };
 
-            dennisMusicHTML5.bind('ended', function() {
-               env.sounds.dennisMusic.play();
-
+            fourTwentyHTML5.bind('ended', function() {
+               env.sounds.fourTwenty.play();
             });
 
              // XD
@@ -173,12 +141,10 @@ var whipEnabled = true;
          } else {
             if (arg.toLowerCase() === 'on') {
                if (!env.musicOn) {
-                  //env.sounds.dennisMusic.play();
                   env.sounds.fourTwenty.play();
                }
                env.musicOn = true;
             } else if (arg.toLowerCase() === 'off') {
-               //env.sounds.dennisMusic.stop();
                env.sounds.fourTwenty.stop();
                env.musicOn = false;
             }
