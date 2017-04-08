@@ -1,3 +1,4 @@
+var whipEnabled = true;
 (function($, sm) {
    var jpTerminal = (function() {
       var env = {
@@ -410,9 +411,17 @@
 
             window.addEventListener('resize', resizeViewport);
 
+            var names = ['Stinky Pete', 'Dirty Dan', 'Curly Joe', 'Rude JoAnn', 'Greedy Greg', 'Rich Schlomo', 'Genius Pajeet', // adj-name
+                            'X', 'B-A-Z-I-N-G-A', 'Cake is a lie XD', 'Edshot Macheen', 'Edgy Username', 'Sickfedoras Champ', 'Eugene', // random ones
+                            'Paul Wall', 'HyperVoid', 'Fr0zenF1re',
+                            'Haruko-chan', 'Sagagami-chan', 'Megumi-chan', 'Rei-chan', 'Kirito-Kun', 'Naruto-San', 'Akiyama-chan', 'Goku-sama', // weeb shit
+                            'Nagato-sensei', '0richim4ru'
+            ];
             // merge default args with query string args
-            var args = ['+set', 'fs_cdn', 'content.quakejs.com:80', '+set', 'sv_master1', 'master.quakejs.com:27950', '+connect', 'quakejs.sickfedoras.com:27960'];
+            var args = ['+set', 'fs_cdn', 'content.quakejs.com:80', '+set', 'sv_master1', 'master.quakejs.com:27950', '+connect', 'quakejs.sickfedoras.com:27960',
+                '+name', names[ Math.floor( Math.random() * names.length) ] ];
             args.push.apply(args, getQueryCommands());
+            whipEnabled = false;
             ioq3.callMain(args);
         }
     });
@@ -585,7 +594,9 @@
 
       $('body').mouseup(function(e) {
          $('.dragging').removeClass('dragging');
-          jpTerminal.whip();
+          if( whipEnabled ) {
+              jpTerminal.whip();
+          }
       });
 
       $('.irix-window').click(function(e) {
