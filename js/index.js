@@ -503,17 +503,12 @@ var whipEnabled = true;
          alt.css('opacity', '0');
          alt.hide()
       }, duration);
-   }
+   };
 
    var blurAllWindows = function() {
       $('.cursor', '.irix-window').removeClass('active-cursor');
       $('.buffer').blur();
-   }
-
-    // fix gif to load on every request.
-    //var hangGif = $('#hang-urself').attr('src');
-    //$('#hang-urself').attr('src', '');
-    //$('#hang-urself').attr('src', hangGif + "?"+new Date().getTime());
+   };
 
    $(document).ready(function() {
       // attempt to cache objects
@@ -521,22 +516,14 @@ var whipEnabled = true;
             new Image().src = '/img/' + this;
          });
 
-      // remove boot screen
-      setTimeout(function() {
-         $('#irix-boot').remove();
-         $('#main-buffer').focus();
+        // remove boot screen
+        var hangVid = document.getElementById('hang-video');
 
-         if (!location.pathname.match(/system/)) {
-            $('#main-buffer').blur();
-            $('#intro').show();
-            $('#intro').click(function() {
-               $(this).fadeOut(1000);
-               $('#intro-scene').attr('src', '');
-            });
-         }
-      }, 3350);
+        hangVid.onended = function(){
+            $('#irix-boot').remove();
+            $('#main-buffer').focus();
+        };
 
-      $('body').click(blurAllWindows);
 
       (function() {
          var diffX = 0;
